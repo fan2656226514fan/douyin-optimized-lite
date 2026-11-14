@@ -1,0 +1,389 @@
+[
+  {
+    "enable": true,
+    "uuid": "rule-nick-news",
+    "name": "屏蔽用户名含「新闻」的作者",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "nickname",
+      "ruleValue": "新闻",
+      "isFunctionHandler": false,
+      "remarks": "作者昵称包含『新闻』即过滤"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-huawei",
+    "name": "屏蔽华为/余承东/花粉相关",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "nickname",
+        "mixInfoName",
+        "seriesName"
+      ],
+      "ruleValue": "华为|余承东|花粉|鸿蒙|mate[0-9]{0,2}|问界|智界|享界|尊界|余大嘴|大嘴|菊厂|华子",
+      "isFunctionHandler": false,
+      "remarks": "视频文案/话题/标签/合集名/作者名命中即过滤（含余承东外号：余大嘴/大嘴，华为俗称：菊厂/华子）"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-xiaomi",
+    "name": "屏蔽小米/雷军/米粉相关",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "nickname",
+        "mixInfoName",
+        "seriesName"
+      ],
+      "ruleValue": "小米|雷军|米粉|红米|Redmi|卢伟冰|澎湃OS|雷布斯|军儿|雷总|卢十瓦|[Aa]re[ ]?[Yy]ou[ ]?[Oo][Kk]",
+      "isFunctionHandler": false,
+      "remarks": "视频文案/话题/标签/合集名/作者名命中即过滤（含雷军外号：雷布斯/军儿/雷总/Are you OK，卢伟冰外号：卢十瓦）"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-car",
+    "name": "屏蔽汽车相关",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "nickname",
+        "mixInfoName",
+        "seriesName"
+      ],
+      "ruleValue": "汽车|汽车人|轿车|SUV|新能源车|电动车|电车|充电桩|续航|提车|提了|落地价|裸车价|试驾|评测车|车评|车主|老司机|驾考|科目[二三]|倒车|超车|闯红灯|违章|追尾|剐蹭|车险|保养|4S店|二手车|改装车|越野|房车|跑车|敞篷|迈巴赫|奔驰|宝马|奥迪|大众|丰田|本田|日产|马自达|特斯拉|比亚迪|理想汽车|蔚来|小鹏|极氪|零跑|问界|智界|享界|尊界|奇瑞|吉利|长城|红旗|五菱|凯迪拉克|沃尔沃|捷豹|路虎|保时捷|兰博基尼|法拉利|劳斯莱斯|宾利|BBA|油车|混动|增程|插混|智驾|辅助驾驶|自动泊车|OTA升级",
+      "isFunctionHandler": false,
+      "remarks": "汽车品牌/车型/购车/用车/驾考/车评等全场景关键词"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-ads",
+    "name": "屏蔽广告视频（结构化字段）",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "isAds",
+      "ruleValue": "true",
+      "isFunctionHandler": false,
+      "remarks": "抖音接口标记的广告视频（is_ads/raw_ad_data/brand_ad），字段解析内置三重判定，零误杀"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-product",
+    "name": "屏蔽商品推广/带货",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "isProduct",
+      "ruleValue": "true",
+      "isFunctionHandler": false,
+      "remarks": "挂购物车/付费内容/商品信息的带货视频"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-ad-words",
+    "name": "屏蔽广告/推广文案词",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "mixInfoName"
+      ],
+      "ruleValue": "广告|赞助|推广|合作同款|同款|好物分享|好物推荐|种草|拔草|划算|优惠券|领券|下单|链接在购物车|点击下方|小黄车|橱窗|带货|直播带货|福利价|宠粉价|限量抢|手慢无|最后一波|清仓|工厂直供|源头工厂|纯棉T恤|严选|大牌平替|平替|旗舰店|私聊|私信我|咨询客服|客服微信|加微信|扫码进群|进群领|粉丝群|资料领取|免费领|0元领|一分钱|超值|宝藏店|良心店|回购|无限回购|自用款|自留款|破价|口粮|尾单|外贸原单|剪标|断码",
+      "isFunctionHandler": false,
+      "remarks": "广告话术/带货话术/引流话术关键词，只匹配文案不匹配作者名（避免误杀正经作者）"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-live",
+    "name": "屏蔽直播/直播间卡片",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "isLive",
+      "ruleValue": "true",
+      "isFunctionHandler": false,
+      "remarks": "推荐流里的直播间卡片（cell_room 结构），字段级判定零误杀"
+    }
+  },
+  {
+    "enable": true,
+    "uuid": "rule-gender-war",
+    "name": "屏蔽男权/女权对立话题",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "mixInfoName",
+        "seriesName"
+      ],
+      "ruleValue": "男权|女权|男拳|女拳|田园女权|极端女权|极端男权|打拳|舔狗|普信男|普信女|凤凰男|扶弟魔|彩礼|天价彩礼|拜金女|直男癌|直女癌|妈宝男|厌男|厌女|恐婚|不婚主义|大龄剩女|大龄剩男|剩女|剩男|捞女|捞男|吃软饭|彩礼谈崩|相亲角|催婚|逼婚|性别对立|男女对立|男德|女德|大男子主义|婚驴|国男|国女|蝈蝻|红药丸|蓝药丸|incel|男凝|女性凝视|生育价值|不婚不育|恐男|恐女|母胎solo",
+      "isFunctionHandler": false,
+      "remarks": "性别对立/婚恋冲突/引战关键词。已剔除高风险泛词（绿茶/渣男/海王/小仙女/集美/打拳在拳击语境/绿帽/出轨等），降低误杀"
+    }
+  },
+  {
+    "enable": true,
+    "uuid": "rule-aigc",
+    "name": "屏蔽AI生成视频",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "mixInfoName",
+        "seriesName"
+      ],
+      "ruleValue": "作者声明[：:][ ]*内容由[ ]*AI[ ]*生成|内容由[ ]?AI[ ]?生成|AI生成|AI创作|AI制作|AIGC|疑似AI|人工智能生成|AI配音|AI绘画|AI换脸|数字人|虚拟主播|AI教程",
+      "isFunctionHandler": false,
+      "remarks": "AIGC 声明横幅（作者声明：内容由 AI 生成）、AI 生成类话题/标签及 AI配音/数字人 等标记命中即过滤"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-scam-money",
+    "name": "屏蔽网赚/刷单/荐股/博彩引流",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "mixInfoName"
+      ],
+      "ruleValue": "刷单|网赚|兼职日结|日入|月入过万|带你赚|带单|荐股|涨停|内部消息|稳赚|返利|薅羊毛|撸羊毛|加我微信|私信我|投资群|博彩|彩票|下注|棋牌",
+      "isFunctionHandler": false,
+      "remarks": "诈骗/引流高发话术"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-drama-push",
+    "name": "屏蔽短剧/小说推文引流",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag"
+      ],
+      "ruleValue": "短剧|免费看全集|一口气看完|大结局|更新到第[0-9]+集|第[0-9]+集|后续在|点击看后续|小说|爽文|全文已完结",
+      "isFunctionHandler": false,
+      "remarks": "短剧/小说推文引流号"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-course",
+    "name": "屏蔽卖课/知识付费",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "mixInfoName"
+      ],
+      "ruleValue": "0基础|零基础|三天学会|[0-9]+天学会|训练营|陪跑|私教课|变现|招生|名额有限|报名从速|限时优惠|课程链接|导师|助教|学员见证|加助教",
+      "isFunctionHandler": false,
+      "remarks": "卖课/割韭菜话术"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-superstition",
+    "name": "屏蔽玄学/算命/风水",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "nickname",
+        "mixInfoName"
+      ],
+      "ruleValue": "算命|看八字|批八字|风水|看相|面相|手相|易经|开光|化太岁|还阴债|转运|运势|塔罗|占卜|风水先生",
+      "isFunctionHandler": false,
+      "remarks": "玄学类引流/收费"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-tandian",
+    "name": "屏蔽探店/团购广告",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag",
+        "mixInfoName"
+      ],
+      "ruleValue": "探店|团购|人均[0-9]+|套餐|优惠团|到店|核销|扫码下单|限时抢购|本店|开业酬宾",
+      "isFunctionHandler": false,
+      "remarks": "本地生活广告"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-chicken-soup",
+    "name": "屏蔽成功学/鸡汤",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra"
+      ],
+      "ruleValue": "底层逻辑|富人思维|搞钱|情绪价值|吸引力法则|破圈|人脉|觉醒|能量场|自律的人",
+      "isFunctionHandler": false,
+      "remarks": "泛词精简版，减少误杀"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-health-rumor",
+    "name": "屏蔽医疗养生谣言",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag"
+      ],
+      "ruleValue": "偏方|秘方|根治|包治|神药|祖传秘方|老中医|降三高|壮阳|丰胸|排毒|抗癌|治百病|药到病除",
+      "isFunctionHandler": false,
+      "remarks": "医疗谣言/卖药"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-shortvideo",
+    "name": "屏蔽超短视频（<3秒）",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "duration",
+      "ruleValue": "<3000",
+      "isFunctionHandler": false,
+      "remarks": "纯引流钩子/劣质内容"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-sad-story",
+    "name": "屏蔽卖惨/苦情营销",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": [
+        "desc",
+        "textExtra",
+        "videoTag"
+      ],
+      "ruleValue": "卖惨|苦命|重病|跪求|求求大家|救命钱|孩子得了|走投无路|孤儿",
+      "isFunctionHandler": false,
+      "remarks": "悲情引流/骗捐"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": false,
+    "uuid": "rule-zero-digg",
+    "name": "屏蔽零点赞视频（默认关）",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "diggCount",
+      "ruleValue": "=0",
+      "isFunctionHandler": false,
+      "remarks": "误杀新号，确认后再开"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-author-block",
+    "name": "作者黑名单（函数）",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "custom",
+      "isFunctionHandler": true,
+      "ruleValue": "function(data){ var a = data.transformAwemeInfo(); var BLOCK = []; var nick = (a && a.author && a.author.nickname) || ''; return BLOCK.indexOf(nick) !== -1; }",
+      "remarks": "在 BLOCK 数组里填作者名，精确屏蔽指定作者"
+    },
+    "dynamicData": []
+  }
+]
