@@ -166,8 +166,23 @@
   },
   {
     "enable": true,
-    "uuid": "rule-aigc",
-    "name": "屏蔽AI生成视频",
+    "uuid": "rule-aigc-field",
+    "name": "屏蔽AI生成视频（字段级）",
+    "data": {
+      "scope": [
+        "all"
+      ],
+      "ruleName": "isAigc",
+      "ruleValue": "true",
+      "isFunctionHandler": false,
+      "remarks": "接口结构化字段：is_aigc_media 或非空 aigc_info 命中即过滤（零误杀）"
+    },
+    "dynamicData": []
+  },
+  {
+    "enable": true,
+    "uuid": "rule-aigc-text",
+    "name": "屏蔽AI生成视频（关键词兜底）",
     "data": {
       "scope": [
         "all"

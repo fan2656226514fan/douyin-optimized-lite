@@ -462,7 +462,7 @@
     "duration", "liveStreamRoomId", "liveStreamRoomTitle", "liveStreamNickName",
     "liveStreamRoomUserCount", "liveStreamRoomDynamicSpliceLabel", "productId", "productTitle",
     "videoBitRateList", "pictureList",
-    "isFollow", "isLive", "isAds", "isSeriesInfo", "isMixInfo", "isPicture", "isProduct"
+    "isFollow", "isLive", "isAds", "isSeriesInfo", "isMixInfo", "isPicture", "isProduct", "isAigc"
   ];
 
   var SCOPE_KEYS = [
@@ -473,7 +473,7 @@
   function templateInfo() {
     return {
       isFollow: false, isLive: false, isAds: false, isSeriesInfo: false, isMixInfo: false,
-      isPicture: false, isProduct: false,
+      isPicture: false, isProduct: false, isAigc: false,
       awemeId: undefined, nickname: undefined, createTime: undefined, uid: undefined,
       desc: undefined, originDesc: undefined, width: 0, height: 0,
       textExtra: [], videoTag: [], videoTagId: [], suggestWord: [],
@@ -527,6 +527,8 @@
     d.authorEnterpriseVerifyReason = author.enterprise_verify_reason || "";
     d.authorAccountCertInfo = author.account_cert_info || "";
     d.isPicture = aweme.aweme_type === 68;
+    // AIGC 判定（接口结构化字段）：is_aigc_media 或非空 aigc_info（正常视频两者为 false/{}）
+    d.isAigc = Boolean(aweme.is_aigc_media) || Boolean(aweme.aigc_info && typeof aweme.aigc_info === "object" && Object.keys(aweme.aigc_info).length > 0);
     d.isFollow = Boolean(author.follow_status);
 
     if (typeof aweme.create_time === "number") {
